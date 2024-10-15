@@ -1,26 +1,17 @@
 plugins {
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
 }
 
 android {
-    namespace = "com.personal.eternity"
+    namespace = "com.personal.sample_motion_layout"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.personal.eternity"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField("String", "TEST", "\"${rootProject.ext.get("TEST")}\"")
-    }
-
-    buildFeatures {
-        buildConfig = true
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -36,31 +27,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    viewBinding { enable = true }
+    viewBinding {
+        enable = true
+    }
 }
 
-val objectboxVersion = "4.0.2"
-
-
 dependencies {
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.gson)
-    implementation(project(":common"))
-    implementation(project(":sample_motion_layout"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    debugImplementation(libs.objectbox.android.objectbrowser)
-    releaseImplementation(libs.objectbox.android)
-    // ViewModel
-    implementation(libs.lifecycle.viewmodel.ktx)
-    // LiveData
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    // Lifecycles only (without ViewModel or LiveData)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
 }
-apply(plugin = "io.objectbox")

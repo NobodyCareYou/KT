@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Eternity"
 include(":app")
 include(":common")
+include(":sample_motion_layout")

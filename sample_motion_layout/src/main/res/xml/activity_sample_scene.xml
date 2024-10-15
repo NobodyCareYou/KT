@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="5000"
+
+        motion:motionInterpolator="linear">
+
+        <KeyFrameSet>
+
+            <!--            <KeyAttribute-->
+            <!--                android:scaleX="0.5"-->
+            <!--                android:scaleY="0.5"-->
+            <!--                motion:framePosition="25"-->
+            <!--                motion:motionTarget="@id/ball1" />-->
+            <!--            <KeyAttribute-->
+            <!--                android:scaleX="1"-->
+            <!--                android:scaleY="1"-->
+            <!--                motion:framePosition="50"-->
+            <!--                motion:motionTarget="@id/ball1" />-->
+            <!--            <KeyAttribute-->
+            <!--                android:scaleX="2"-->
+            <!--                android:scaleY="2"-->
+            <!--                motion:framePosition="75"-->
+            <!--                motion:motionTarget="@id/ball1" />-->
+
+            <KeyPosition
+                motion:framePosition="25"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/ball1"
+                motion:percentX="0" />
+
+
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/ball1"
+                motion:percentX="0.2" />
+
+
+            <KeyPosition
+                motion:framePosition="75"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/ball1"
+                motion:percentX="0" />
+
+
+            <KeyPosition
+                motion:framePosition="25"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/ball3"
+                motion:percentX="1" />
+
+
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/ball3"
+                motion:percentX="0.8" />
+
+
+            <KeyPosition
+                motion:framePosition="75"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/ball3"
+                motion:percentX="1" />
+
+
+        </KeyFrameSet>
+
+        <OnClick motion:clickAction="toggle"
+
+            />
+
+        <OnSwipe motion:touchAnchorId="@id/ball3" motion:touchAnchorSide="bottom"/>
+
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/ball1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent">
+            <CustomAttribute
+                motion:attributeName="colorFilter"
+                motion:customColorValue="#000" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ball2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent">
+            <CustomAttribute
+                motion:attributeName="colorFilter"
+                motion:customColorValue="#000" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ball3"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent">
+            <CustomAttribute
+                motion:attributeName="colorFilter"
+                motion:customColorValue="#000" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+
+
+            <CustomAttribute
+                motion:attributeName="text"
+                motion:customStringValue="A" />
+        </Constraint>
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/ball1"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="24dp"
+            motion:layout_constraintEnd_toStartOf="@id/ball2"
+            motion:layout_constraintHorizontal_chainStyle="packed"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="colorFilter"
+                motion:customColorValue="#ff0000" />
+        </Constraint>
+        <Constraint
+            android:id="@+id/ball2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="20dp"
+            motion:layout_constraintEnd_toStartOf="@id/ball3"
+            motion:layout_constraintStart_toEndOf="@id/ball1"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/ball3"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="24dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toEndOf="@id/ball2"
+            motion:layout_constraintTop_toTopOf="parent" />
+
+
+        <Constraint
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="text"
+                motion:customStringValue="B" />
+
+        </Constraint>
+
+    </ConstraintSet>
+
+
+</MotionScene>
